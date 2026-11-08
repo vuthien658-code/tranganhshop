@@ -90,7 +90,7 @@ if (SHOP_CHAT_URL) {
 document.getElementById('orderForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const form=e.currentTarget, notice=document.getElementById('formNotice');
-  if(GOOGLE_SCRIPT_URL==="YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"){
+  if(GOOGLE_SCRIPT_URL==="https://script.google.com/macros/s/AKfycbz19KPY412sL6QgbsRfDiY4fdUP8oDXAiR-FbsTJOohEArYCPg8jZCsfCM4rIKCCqKJ/exec"){
     notice.textContent="Website đang ở bản mẫu: vui lòng kết nối Google Sheets trong phần hướng dẫn trước khi nhận đơn thật.";
     return;
   }
