@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8b3454">
+<title>TRANG ANH | Giày nữ thanh lịch</title>
+<style>
+:root{--wine:#873650;--rose:#f8e9ed;--ink:#292329;--muted:#756b70;--gold:#c39a62;--paper:#fffaf8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}.topbar{background:var(--wine);color:white;text-align:center;padding:10px 14px;font-size:13px;letter-spacing:.3px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px max(5%,calc((100% - 1160px)/2));border-bottom:1px solid #f0e6e8;position:sticky;top:0;background:#fff;z-index:5}
+.brand{font-family:Georgia,serif;font-size:27px;letter-spacing:2px;color:var(--wine);font-weight:bold}.brand small{display:block;font:10px Arial;letter-spacing:3px;color:#8e7a80;text-align:center;margin-top:3px}
+nav{display:flex;gap:25px;font-size:14px;color:#51464b}nav a:hover{color:var(--wine)}
+.hero{background:linear-gradient(110deg,#f8e9ed 0%,#fff8f5 62%,#f3e2df 100%);padding:72px 6%;min-height:390px;display:flex;align-items:center}
+.hero-inner{max-width:1160px;width:100%;margin:auto}.eyebrow{color:var(--wine);font-size:12px;letter-spacing:3px;font-weight:bold}.hero h1{font:clamp(36px,5vw,58px)/1.12 Georgia,serif;max-width:650px;margin:18px 0;color:#39262e}.hero p{max-width:540px;line-height:1.8;color:#6f5c64}.btn{display:inline-block;background:var(--wine);color:white;padding:14px 25px;border-radius:3px;font-weight:bold;font-size:14px;margin-top:14px;border:0;cursor:pointer}.btn:hover{background:#64263d}
+.section{max-width:1160px;margin:auto;padding:65px 22px}.section-head{text-align:center;margin-bottom:35px}.section-head span{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:bold}.section h2{font:34px Georgia,serif;margin:10px 0}.section-head p{color:var(--muted);font-size:14px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}.product{border:1px solid #f0e6e8;background:#fff}.product-art{height:260px;background:linear-gradient(135deg,#f7eff0,#ead9dd);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.product-art:before{content:"";width:190px;height:76px;border-radius:70% 25% 22% 60%;background:linear-gradient(145deg,#fff,#d7c5c8);transform:rotate(-13deg);box-shadow:0 20px 28px #8d687333;position:absolute}.product-art:after{content:"";width:145px;height:15px;border-radius:50%;background:#8b3454;position:absolute;transform:translate(12px,36px) rotate(-13deg);opacity:.9}.product-art b{position:absolute;bottom:18px;right:18px;background:#fff;color:var(--wine);padding:8px 12px;font-size:12px;letter-spacing:1px}
+.product-info{padding:22px}.product-info h3{font:23px Georgia,serif;margin:0 0 8px}.desc{color:var(--muted);font-size:13px;line-height:1.6}.price{font-size:22px;font-weight:bold;color:var(--wine);margin:14px 0 5px}.old{font-size:13px;color:#9b9094;text-decoration:line-through;margin-left:8px;font-weight:normal}.colors{font-size:13px;color:#6e6268;margin:10px 0}.product-info .btn{margin-top:8px}
+.promo{background:var(--wine);color:white;text-align:center;padding:42px 20px}.promo h2{font:32px Georgia,serif;margin:0 0 10px}.promo p{margin:8px;color:#f8e9ed;line-height:1.6}.promo strong{color:#ffe2b7}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.benefit{background:var(--paper);padding:25px;text-align:center}.benefit .symbol{font-size:26px;color:var(--gold)}.benefit h3{font:20px Georgia,serif;margin:12px 0 8px}.benefit p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.order-wrap{background:#fbf5f3;padding:65px 20px}.order{max-width:720px;margin:auto;background:white;padding:32px;border:1px solid #f0e6e8}.order h2{text-align:center;font:32px Georgia,serif;margin:0 0 8px}.order>p{text-align:center;color:var(--muted);font-size:13px;margin-bottom:25px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:13px;font-weight:bold}.field input,.field select,.field textarea{width:100%;padding:13px;border:1px solid #ddd1d5;border-radius:3px;font:14px Arial;background:white}.field textarea{min-height:82px;resize:vertical}.order button{width:100%}.notice{font-size:12px;color:#8a7c82;text-align:center;line-height:1.5;margin-top:12px}
+footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer .brand{color:#fff}footer p{font-size:13px;color:#d2c4c9;line-height:1.7}
+.float{position:fixed;right:18px;bottom:18px;background:#168b55;color:white;padding:13px 17px;border-radius:30px;font-size:13px;font-weight:bold;box-shadow:0 5px 18px #0002;z-index:4}
+@media(max-width:700px){header{padding:14px 18px}nav{gap:12px;font-size:12px}.brand{font-size:22px}.hero{padding:55px 22px;min-height:360px}.products{grid-template-columns:1fr}.product-art{height:220px}.benefits{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.order{padding:23px 17px}.section{padding:48px 18px}}
+</style>
+</head>
+<body>
+<div class="topbar">ƯU ĐÃI ĐẶC BIỆT • MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC • THANH TOÁN KHI NHẬN HÀNG</div>
+<header>
+  <a class="brand" href="#">TRANG ANH<small>WOMEN'S SHOES</small></a>
+  <nav><a href="#san-pham">Sản phẩm</a><a href="#uu-dai">Ưu đãi</a><a href="#dat-hang">Đặt hàng</a></nav>
+</header>
+<main>
+<section class="hero"><div class="hero-inner">
+  <div class="eyebrow">VẺ ĐẸP THANH LỊCH Ở MỌI ĐỘ TUỔI</div>
+  <h1>Tự tin sải bước,<br>tỏa sáng phong cách riêng</h1>
+  <p>TRANG ANH mang đến những mẫu giày nữ duyên dáng, giúp quý cô thêm tự tin và nổi bật trong từng khoảnh khắc.</p>
+  <a class="btn" href="#san-pham">KHÁM PHÁ SẢN PHẨM</a>
+</div></section>
+<section class="section" id="san-pham">
+  <div class="section-head"><span>BỘ SƯU TẬP TRANG ANH</span><h2>Mẫu giày được yêu thích</h2><p>Chọn kiểu dáng phù hợp với phong cách của bạn</p></div>
+  <div class="products">
+    <article class="product"><div class="product-art"><b>GÓT 7 CM</b></div><div class="product-info"><h3>Giày cao gót thanh lịch 7 cm</h3><div class="desc">Kiểu dáng nữ tính, dễ phối trang phục; phù hợp đi làm, đi tiệc và gặp gỡ bạn bè.</div><div class="price">179.000đ <span class="old">199.000đ</span></div><div class="colors">Màu tham khảo: Đen • Nâu • Kem</div><a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 7 cm')">ĐẶT MUA NGAY</a></div></article>
+    <article class="product"><div class="product-art"><b>GÓT 10 CM</b></div><div class="product-info"><h3>Giày cao gót tôn dáng 10 cm</h3><div class="desc">Thiết kế nổi bật, tạo vẻ ngoài sang trọng và giúp tổng thể trang phục thêm cuốn hút.</div><div class="price">179.000đ</div><div class="colors">Màu tham khảo: Đen • Nâu • Kem</div><a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 10 cm')">ĐẶT MUA NGAY</a></div></article>
+  </div>
+</section>
+<section class="promo" id="uu-dai"><h2>Ưu đãi dành riêng cho quý cô</h2><p>Mua 1 đôi chỉ <strong>179.000đ</strong> – Miễn phí vận chuyển</p><p>Mua combo 2 đôi chỉ <strong>320.000đ</strong> – Tiết kiệm hơn</p><p>Thanh toán COD: nhận hàng rồi thanh toán</p><a class="btn" style="background:#fff;color:#873650" href="#dat-hang">NHẬN ƯU ĐÃI NGAY</a></section>
+<section class="section"><div class="section-head"><span>AN TÂM MUA SẮM</span><h2>Dịch vụ từ TRANG ANH</h2></div><div class="benefits">
+  <div class="benefit"><div class="symbol">♡</div><h3>Tư vấn tận tình</h3><p>Hỗ trợ lựa chọn mẫu giày và kích cỡ phù hợp trước khi xác nhận đơn.</p></div>
+  <div class="benefit"><div class="symbol">✧</div><h3>Giao hàng toàn quốc</h3><p>Miễn phí vận chuyển theo chương trình ưu đãi đang áp dụng.</p></div>
+  <div class="benefit"><div class="symbol">✓</div><h3>Thanh toán COD</h3><p>Nhận hàng và thanh toán trực tiếp cho đơn vị giao hàng.</p></div>
+</div></section>
+<section class="order-wrap" id="dat-hang"><div class="order">
+  <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
+  <form id="orderForm">
+    <div class="form-grid">
+      <div class="field"><label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Nhập họ tên"></div>
+      <div class="field"><label for="phone">Số điện thoại *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,15}" placeholder="Nhập số điện thoại"></div>
+      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required><option value="">-- Chọn sản phẩm --</option><option>Giày cao gót 7 cm</option><option>Giày cao gót 10 cm</option><option>Combo 2 đôi</option></select></div>
+      <div class="field"><label for="size">Kích cỡ</label><input id="size" name="size" placeholder="Ví dụ: 37"></div>
+      <div class="field"><label for="color">Màu sắc</label><select id="color" name="color"><option value="">-- Chọn màu --</option><option>Đen</option><option>Nâu</option><option>Kem</option><option>Khác / cần tư vấn</option></select></div>
+      <div class="field full"><label for="address">Địa chỉ nhận hàng *</label><textarea id="address" name="address" required placeholder="Số nhà, đường, xã/phường, tỉnh/thành phố"></textarea></div>
+      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Số lượng hoặc yêu cầu thêm (nếu có)"></div>
+    </div>
+    <button class="btn" type="submit">GỬI ĐƠN HÀNG</button>
+    <div class="notice" id="formNotice">Thông tin của bạn được dùng để tư vấn và xác nhận đơn hàng. Vui lòng kiểm tra số điện thoại và địa chỉ trước khi gửi.</div>
+  </form>
+</div></section>
+</main>
+<footer><div class="brand">TRANG ANH</div><p>GIÀY NỮ THANH LỊCH<br>Miễn phí vận chuyển • Thanh toán khi nhận hàng<br>Hotline: <a id="footerPhone" href="#">Chưa cập nhật</a></p><small>© 2026 TRANG ANH. All rights reserved.</small></footer>
+<a class="float" id="chatLink" href="#dat-hang">Chat tư vấn</a>
+<script>
+// CẬP NHẬT 3 DÒNG DƯỚI ĐÂY TRƯỚC KHI ĐĂNG WEBSITE:
+const SHOP_PHONE = ""; // Ví dụ: 0901234567
+const SHOP_CHAT_URL = ""; // Dán link Messenger hoặc Zalo của shop
+const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL";
+function chooseProduct(value){document.getElementById('product').value=value;}
+if (SHOP_PHONE) {
+  const phoneLink=document.getElementById('footerPhone');
+  phoneLink.textContent=SHOP_PHONE;
+  phoneLink.href='tel:'+SHOP_PHONE.replace(/[^0-9+]/g,'');
+}
+if (SHOP_CHAT_URL) {
+  const chatLink=document.getElementById('chatLink');
+  chatLink.href=SHOP_CHAT_URL;
+  chatLink.target='_blank';
+  chatLink.rel='noopener';
+}
+document.getElementById('orderForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form=e.currentTarget, notice=document.getElementById('formNotice');
+  if(GOOGLE_SCRIPT_URL==="YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"){
+    notice.textContent="Website đang ở bản mẫu: vui lòng kết nối Google Sheets trong phần hướng dẫn trước khi nhận đơn thật.";
+    return;
+  }
+  const data=Object.fromEntries(new FormData(form).entries());
+  data.createdAt=new Date().toLocaleString('vi-VN');
+  const button=form.querySelector('button');button.disabled=true;button.textContent='ĐANG GỬI...';
+  try{
+    await fetch(GOOGLE_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data)});
+    notice.textContent='Đã gửi thông tin đặt hàng. Shop sẽ liên hệ xác nhận với bạn sớm nhất!';
+    form.reset();
+  }catch(err){notice.textContent='Chưa gửi được đơn. Vui lòng nhắn tin trực tiếp cho shop.';}
+  finally{button.disabled=false;button.textContent='GỬI ĐƠN HÀNG';}
+});
+</script>
+</body></html>
