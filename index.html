@@ -72,9 +72,9 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 <a class="float" id="chatLink" href="#dat-hang">Chat tư vấn</a>
 <script>
 // CẬP NHẬT 3 DÒNG DƯỚI ĐÂY TRƯỚC KHI ĐĂNG WEBSITE:
-const SHOP_PHONE = ""; // Ví dụ: 0987249275
+const SHOP_PHONE = ""; // Ví dụ: 0901234567
 const SHOP_CHAT_URL = ""; // Dán link Messenger hoặc Zalo của shop
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby0Y09Jwe6ngRPB1T_hI13lKiAf0afUedxpMro1v_hwDQ8Osqu-KGC7CTX_Ya7G_Lgz/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyikm-3ikn0Ey9qoPyemUCqe6MAuApK6rRG52VCnuUShraiSsiGPAPOJEAVEgd8kJT4/exec";
 function chooseProduct(value){document.getElementById('product').value=value;}
 if (SHOP_PHONE) {
   const phoneLink=document.getElementById('footerPhone');
@@ -90,7 +90,7 @@ if (SHOP_CHAT_URL) {
 document.getElementById('orderForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const form=e.currentTarget, notice=document.getElementById('formNotice');
-  if(GOOGLE_SCRIPT_URL==="https://script.google.com/macros/s/AKfycby0Y09Jwe6ngRPB1T_hI13lKiAf0afUedxpMro1v_hwDQ8Osqu-KGC7CTX_Ya7G_Lgz/exec"){
+  if(GOOGLE_SCRIPT_URL==="https://script.google.com/macros/s/AKfycbyikm-3ikn0Ey9qoPyemUCqe6MAuApK6rRG52VCnuUShraiSsiGPAPOJEAVEgd8kJT4/exec"){
     notice.textContent="Website đang ở bản mẫu: vui lòng kết nối Google Sheets trong phần hướng dẫn trước khi nhận đơn thật.";
     return;
   }
