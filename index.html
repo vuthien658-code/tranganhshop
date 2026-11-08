@@ -68,25 +68,11 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   </form>
 </div></section>
 </main>
-<footer><div class="brand">TRANG ANH</div><p>GIÀY NỮ THANH LỊCH<br>Miễn phí vận chuyển • Thanh toán khi nhận hàng<br>Hotline: <a id="footerPhone" href="#">Chưa cập nhật</a></p><small>© 2026 TRANG ANH. All rights reserved.</small></footer>
-<a class="float" id="chatLink" href="#dat-hang">Chat tư vấn</a>
+<footer><div class="brand">TRANG ANH</div><p>GIÀY NỮ THANH LỊCH<br>Miễn phí vận chuyển • Thanh toán khi nhận hàng<br>Hotline: Bổ sung số điện thoại của shop</p><small>© 2026 TRANG ANH. All rights reserved.</small></footer>
+<a class="float" href="https://m.me/" target="_blank" rel="noopener">Chat tư vấn</a>
 <script>
-// CẬP NHẬT 3 DÒNG DƯỚI ĐÂY TRƯỚC KHI ĐĂNG WEBSITE:
-const SHOP_PHONE = ""; // Ví dụ: 0987249275
-const SHOP_CHAT_URL = ""; // Dán link Messenger hoặc Zalo của shop
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbodjf2DQta1SysRUYl6xYYhvue1FwXL0mhHA8t1M8Hc7G5vWzrtHL61b9qcfDQUXe/exec";
 function chooseProduct(value){document.getElementById('product').value=value;}
-if (SHOP_PHONE) {
-  const phoneLink=document.getElementById('footerPhone');
-  phoneLink.textContent=SHOP_PHONE;
-  phoneLink.href='tel:'+SHOP_PHONE.replace(/[^0-9+]/g,'');
-}
-if (SHOP_CHAT_URL) {
-  const chatLink=document.getElementById('chatLink');
-  chatLink.href=SHOP_CHAT_URL;
-  chatLink.target='_blank';
-  chatLink.rel='noopener';
-}
 document.getElementById('orderForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const form=e.currentTarget, notice=document.getElementById('formNotice');
