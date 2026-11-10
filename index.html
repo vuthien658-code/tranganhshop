@@ -66,8 +66,7 @@
     bottom: 75px;
     width: calc(100% - 24px);
   }
-}<style>
-<style>
+}
 :root{--wine:#873650;--rose:#f8e9ed;--ink:#292329;--muted:#756b70;--gold:#c39a62;--paper:#fffaf8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
 a{color:inherit;text-decoration:none}.topbar{background:var(--wine);color:white;text-align:center;padding:10px 14px;font-size:13px;letter-spacing:.3px}
@@ -85,16 +84,31 @@ nav{display:flex;gap:25px;font-size:14px;color:#51464b}nav a:hover{color:var(--w
 footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer .brand{color:#fff}footer p{font-size:13px;color:#d2c4c9;line-height:1.7}
 .float{position:fixed;right:18px;bottom:18px;background:#168b55;color:white;padding:13px 17px;border-radius:30px;font-size:13px;font-weight:bold;box-shadow:0 5px 18px #0002;z-index:4}
 @media(max-width:700px){header{padding:14px 18px}nav{gap:12px;font-size:12px}.brand{font-size:22px}.hero{padding:55px 22px;min-height:360px}.products{grid-template-columns:1fr}.product-art{height:220px}.benefits{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.order{padding:23px 17px}.section{padding:48px 18px}}
+
+/* Nút gửi đơn luôn hiển thị rõ ràng */
+.order form button[type="submit"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: 54px;
+  margin: 22px 0 12px;
+  padding: 16px;
+  background: #d92768 !important;
+  color: #fff !important;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.order form button[type="submit"]:disabled {
+  opacity: .7 !important;
+  cursor: wait;
+}
+
 </style>
 </head>
- <div class="purchase-toast" id="purchaseToast">
-  <div class="toast-icon">✓</div>
-  <div class="toast-content">
-    <strong>Khách hàng vừa đặt hàng</strong>
-    <p>Đang cập nhật đơn hàng...</p>
-    <small>TRANG ANH</small>
-  </div>
-</div>
 <body>
 <div class="topbar">ƯU ĐÃI ĐẶC BIỆT • MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC • THANH TOÁN KHI NHẬN HÀNG</div>
 <header>
@@ -108,6 +122,23 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   <h1>Tự tin sải bước,<br>tỏa sáng phong cách riêng</h1>
   <p>TRANG ANH mang đến những mẫu giày nữ duyên dáng, giúp quý cô thêm tự tin và nổi bật trong từng khoảnh khắc.</p>
   <a class="btn" href="#san-pham">KHÁM PHÁ SẢN PHẨM</a>
+</div></section>
+
+<section class="order-wrap" id="dat-hang"><div class="order">
+  <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
+  <form id="orderForm">
+    <div class="form-grid">
+      <div class="field"><label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Nhập họ tên"></div>
+      <div class="field"><label for="phone">Số điện thoại *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,15}" placeholder="Nhập số điện thoại"></div>
+      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required><option value="">-- Chọn sản phẩm --</option><option>Giày cao gót 7 cm</option><option>Giày cao gót 10 cm</option><option>Combo 2 đôi</option></select></div>
+      <div class="field"><label for="size">Kích cỡ</label><input id="size" name="size" placeholder="Ví dụ: 37"></div>
+      <div class="field"><label for="color">Màu sắc</label><select id="color" name="color"><option value="">-- Chọn màu --</option><option>Đen</option><option>Nâu</option><option>Kem</option><option>Khác / cần tư vấn</option></select></div>
+      <div class="field full"><label for="address">Địa chỉ nhận hàng *</label><textarea id="address" name="address" required placeholder="Số nhà, đường, xã/phường, tỉnh/thành phố"></textarea></div>
+      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Số lượng hoặc yêu cầu thêm (nếu có)"></div>
+    </div>
+    <button class="btn" type="submit">GỬI ĐƠN HÀNG</button>
+    <div class="notice" id="formNotice">Thông tin của bạn được dùng để tư vấn và xác nhận đơn hàng. Vui lòng kiểm tra số điện thoại và địa chỉ trước khi gửi.</div>
+  </form>
 </div></section>
 <section class="section" id="san-pham">
   <div class="section-head"><span>BỘ SƯU TẬP TRANG ANH</span><h2>Mẫu giày được yêu thích</h2><p>Chọn kiểu dáng phù hợp với phong cách của bạn</p></div>
@@ -145,22 +176,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   <div class="benefit"><div class="symbol">✧</div><h3>Giao hàng toàn quốc</h3><p>Miễn phí vận chuyển theo chương trình ưu đãi đang áp dụng.</p></div>
   <div class="benefit"><div class="symbol">✓</div><h3>Thanh toán COD</h3><p>Nhận hàng và thanh toán trực tiếp cho đơn vị giao hàng.</p></div>
 </div></section>
-<section class="order-wrap" id="dat-hang"><div class="order">
-  <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
-  <form id="orderForm">
-    <div class="form-grid">
-      <div class="field"><label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Nhập họ tên"></div>
-      <div class="field"><label for="phone">Số điện thoại *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,15}" placeholder="Nhập số điện thoại"></div>
-      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required><option value="">-- Chọn sản phẩm --</option><option>Giày cao gót 7 cm</option><option>Giày cao gót 10 cm</option><option>Combo 2 đôi</option></select></div>
-      <div class="field"><label for="size">Kích cỡ</label><input id="size" name="size" placeholder="Ví dụ: 37"></div>
-      <div class="field"><label for="color">Màu sắc</label><select id="color" name="color"><option value="">-- Chọn màu --</option><option>Đen</option><option>Nâu</option><option>Kem</option><option>Khác / cần tư vấn</option></select></div>
-      <div class="field full"><label for="address">Địa chỉ nhận hàng *</label><textarea id="address" name="address" required placeholder="Số nhà, đường, xã/phường, tỉnh/thành phố"></textarea></div>
-      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Số lượng hoặc yêu cầu thêm (nếu có)"></div>
-    </div>
-    <button class="btn" type="submit">GỬI ĐƠN HÀNG</button>
-    <div class="notice" id="formNotice">Thông tin của bạn được dùng để tư vấn và xác nhận đơn hàng. Vui lòng kiểm tra số điện thoại và địa chỉ trước khi gửi.</div>
-  </form>
-</div></section>
+
 </main>
 <footer><div class="brand">GIÀY TRANG ANH</div><p>GIÀY NỮ THANH LỊCH<br>Miễn phí vận chuyển • Thanh toán khi nhận hàng<br>Hotline: <a id="footerPhone" href="#">Chưa cập nhật</a></p><small>© 2026 TRANG ANH. All rights reserved.</small></footer>
 <a class="float" id="chatLink" href="#dat-hang">Chat tư vấn 0987249275 </a>
