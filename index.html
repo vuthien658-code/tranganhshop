@@ -107,6 +107,54 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   cursor: wait;
 }
 
+
+/* VIDEO GIỚI THIỆU SẢN PHẨM */
+.video-section {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 42px 22px 56px;
+}
+.video-section .video-heading {
+  text-align: center;
+  color: var(--wine);
+  font: 30px Georgia, serif;
+  margin: 0 0 10px;
+}
+.video-section .video-caption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+.product-video {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #1f1a1d;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px #4b1d2e1f;
+}
+.video-order-link {
+  display: block;
+  width: min(360px, 100%);
+  margin: 20px auto 0;
+  text-align: center;
+  background: var(--wine);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.video-order-link:hover { background: #64263d; }
+@media(max-width:700px) {
+  .video-section { padding: 32px 16px 42px; }
+  .video-section .video-heading { font-size: 25px; }
+  .product-video { border-radius: 10px; }
+}
+
 </style>
 </head>
 <body>
@@ -124,22 +172,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   <a class="btn" href="#san-pham">KHÁM PHÁ SẢN PHẨM</a>
 </div></section>
 
-<section class="order-wrap" id="dat-hang"><div class="order">
-  <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
-  <form id="orderForm">
-    <div class="form-grid">
-      <div class="field"><label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Nhập họ tên"></div>
-      <div class="field"><label for="phone">Số điện thoại *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,15}" placeholder="Nhập số điện thoại"></div>
-      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required><option value="">-- Chọn sản phẩm --</option><option>Giày cao gót 7 cm</option><option>Giày cao gót 10 cm</option><option>Combo 2 đôi</option></select></div>
-      <div class="field"><label for="size">Kích cỡ</label><input id="size" name="size" placeholder="Ví dụ: 37"></div>
-      <div class="field"><label for="color">Màu sắc</label><select id="color" name="color"><option value="">-- Chọn màu --</option><option>Đen</option><option>Nâu</option><option>Kem</option><option>Khác / cần tư vấn</option></select></div>
-      <div class="field full"><label for="address">Địa chỉ nhận hàng *</label><textarea id="address" name="address" required placeholder="Số nhà, đường, xã/phường, tỉnh/thành phố"></textarea></div>
-      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Số lượng hoặc yêu cầu thêm (nếu có)"></div>
-    </div>
-    <button class="btn" type="submit">GỬI ĐƠN HÀNG</button>
-    <div class="notice" id="formNotice">Thông tin của bạn được dùng để tư vấn và xác nhận đơn hàng. Vui lòng kiểm tra số điện thoại và địa chỉ trước khi gửi.</div>
-  </form>
-</div></section>
+
 <section class="section" id="san-pham">
   <div class="section-head"><span>BỘ SƯU TẬP TRANG ANH</span><h2>Mẫu giày được yêu thích</h2><p>Chọn kiểu dáng phù hợp với phong cách của bạn</p></div>
   <div class="products">
@@ -170,6 +203,36 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
     <article class="product"><div class="product-art"><b>GÓT 7 CM</b></div><div class="product-info"><h3>Giày cao gót tôn dáng 7 cm</h3><div class="desc">Thiết kế nổi bật, tạo vẻ ngoài sang trọng và giúp tổng thể trang phục thêm cuốn hút.</div><div class="price">179.000đ <span class="old">189.000đ</span></div><div class="colors">Màu tham khảo: Đen • Nâu • Kem Đỏ Nâu</div><a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 7 cm')">ĐẶT MUA NGAY</a></div></article>
   </div>
 </section>
+
+
+<section class="video-section" id="video-san-pham">
+  <h2 class="video-heading">Xem video giày nữ TRANG ANH</h2>
+  <p class="video-caption">Cùng ngắm sản phẩm qua video thực tế trước khi chọn mẫu và đặt hàng.</p>
+  <video class="product-video" controls playsinline preload="metadata"
+         aria-label="Video giới thiệu giày nữ TRANG ANH">
+    <source src="./videos/giay-trang-anh-den.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ phát video.
+  </video>
+  <a class="video-order-link" href="#dat-hang">ĐẶT HÀNG NGAY</a>
+</section>
+
+<section class="order-wrap" id="dat-hang"><div class="order">
+  <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
+  <form id="orderForm">
+    <div class="form-grid">
+      <div class="field"><label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Nhập họ tên"></div>
+      <div class="field"><label for="phone">Số điện thoại *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,15}" placeholder="Nhập số điện thoại"></div>
+      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required><option value="">-- Chọn sản phẩm --</option><option>Giày cao gót 7 cm</option><option>Giày cao gót 10 cm</option><option>Combo 2 đôi</option></select></div>
+      <div class="field"><label for="size">Kích cỡ</label><input id="size" name="size" placeholder="Ví dụ: 37"></div>
+      <div class="field"><label for="color">Màu sắc</label><select id="color" name="color"><option value="">-- Chọn màu --</option><option>Đen</option><option>Nâu</option><option>Kem</option><option>Khác / cần tư vấn</option></select></div>
+      <div class="field full"><label for="address">Địa chỉ nhận hàng *</label><textarea id="address" name="address" required placeholder="Số nhà, đường, xã/phường, tỉnh/thành phố"></textarea></div>
+      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Số lượng hoặc yêu cầu thêm (nếu có)"></div>
+    </div>
+    <button class="btn" type="submit">GỬI ĐƠN HÀNG</button>
+    <div class="notice" id="formNotice">Thông tin của bạn được dùng để tư vấn và xác nhận đơn hàng. Vui lòng kiểm tra số điện thoại và địa chỉ trước khi gửi.</div>
+  </form>
+</div></section>
+
 <section class="promo" id="uu-dai"><h2>Ưu đãi dành riêng cho quý cô</h2><p>Mua 1 đôi chỉ <strong>179.000đ</strong> – Miễn phí vận chuyển</p><p>Mua combo 2 đôi chỉ <strong>320.000đ</strong> – Tiết kiệm hơn</p><p>Thanh toán COD: nhận hàng rồi thanh toán</p><a class="btn" style="background:#fff;color:#873650" href="#dat-hang">NHẬN ƯU ĐÃI NGAY</a></section>
 <section class="section"><div class="section-head"><span>AN TÂM MUA SẮM</span><h2>Dịch vụ từ TRANG ANH</h2></div><div class="benefits">
   <div class="benefit"><div class="symbol">♡</div><h3>Tư vấn tận tình</h3><p>Hỗ trợ lựa chọn mẫu giày và kích cỡ phù hợp trước khi xác nhận đơn.</p></div>
