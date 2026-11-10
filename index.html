@@ -198,6 +198,66 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   .product-photo { height: 290px; }
 }
 
+
+/* KHU VỰC ẢNH ĐÁNH GIÁ KHÁCH HÀNG */
+.reviews-section {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 44px 22px 52px;
+}
+.reviews-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.reviews-heading span {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+}
+.reviews-heading h2 {
+  color: var(--wine);
+  font: 30px Georgia, serif;
+  margin: 10px 0;
+}
+.reviews-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+.review-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.review-card {
+  margin: 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #f0dce4;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px #4b1d2e12;
+  overflow: hidden;
+}
+.review-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.review-card figcaption {
+  padding: 10px 4px 2px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media(max-width:700px) {
+  .reviews-section { padding: 32px 16px 40px; }
+  .reviews-heading h2 { font-size: 25px; }
+  .review-gallery { grid-template-columns: 1fr; gap: 14px; }
+}
+
 </style>
 </head>
 <body>
@@ -287,6 +347,32 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 
   <a class="video-order-link" href="#dat-hang">ĐẶT HÀNG NGAY</a>
 </section>
+
+
+<!-- ẢNH ĐÁNH GIÁ KHÁCH HÀNG -->
+<section class="reviews-section" id="danh-gia-khach-hang">
+  <div class="reviews-heading">
+    <span>PHẢN HỒI TỪ KHÁCH HÀNG</span>
+    <h2>Khách hàng nói gì về TRANG ANH?</h2>
+    <p>Những hình ảnh đánh giá được shop chia sẻ</p>
+  </div>
+  <div class="review-gallery">
+    <figure class="review-card">
+      <img src="./images/review-khach-hang-1.jpg"
+           alt="Ảnh chụp đánh giá sản phẩm giày nữ Trang Anh - phản hồi khách hàng 1"
+           loading="lazy">
+      <figcaption>Phản hồi khách hàng 1</figcaption>
+    </figure>
+    <figure class="review-card">
+      <img src="./images/review-khach-hang-2.jpg"
+           alt="Ảnh chụp đánh giá sản phẩm giày nữ Trang Anh - phản hồi khách hàng 2"
+           loading="lazy">
+      <figcaption>Phản hồi khách hàng 2</figcaption>
+    </figure>
+  </div>
+</section>
+
+
 
 <section class="order-wrap" id="dat-hang"><div class="order">
   <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
