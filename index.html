@@ -5,68 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#8b3454">
 <title>TRANG ANH | Giày nữ thanh lịch</title>
-  /* HIỆU ỨNG THÔNG BÁO ĐƠN HÀNG */
-.purchase-toast {
-  position: fixed;
-  left: 20px;
-  bottom: 22px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: min(340px, calc(100% - 40px));
-  padding: 14px;
-  background: #fff;
-  border: 1px solid #f3d4df;
-  border-radius: 14px;
-  box-shadow: 0 8px 30px #0002;
-  opacity: 0;
-  transform: translateX(-120%);
-  transition: all .5s ease;
-  pointer-events: none;
-}
-
-.purchase-toast.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.toast-icon {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #fce4ec;
-  color: #d92768;
-  font-size: 22px;
-}
-
-.toast-content strong {
-  display: block;
-  color: #873650;
-  font-size: 13px;
-}
-
-.toast-content p {
-  margin: 5px 0;
-  font-size: 12px;
-  color: #51464b;
-}
-
-.toast-content small {
-  color: #999;
-  font-size: 11px;
-}
-
-@media(max-width:600px) {
-  .purchase-toast {
-    left: 12px;
-    bottom: 75px;
-    width: calc(100% - 24px);
-  }
-}
 <style>
 :root{--wine:#873650;--rose:#f8e9ed;--ink:#292329;--muted:#756b70;--gold:#c39a62;--paper:#fffaf8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
