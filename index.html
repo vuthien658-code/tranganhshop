@@ -94,75 +94,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 </main>
 <footer><div class="brand">GIÀY TRANG ANH</div><p>GIÀY NỮ THANH LỊCH<br>Miễn phí vận chuyển • Thanh toán khi nhận hàng<br>Hotline: <a id="footerPhone" href="#">Chưa cập nhật</a></p><small>© 2026 TRANG ANH. All rights reserved.</small></footer>
 <a class="float" id="chatLink" href="#dat-hang">Chat tư vấn 0987249275 </a>
-  // DỮ LIỆU ĐƠN HÀNG THẬT TỪ GOOGLE SHEETS
-window.taOrders = [];
-window.taToastIndex = 0;
-
-function renderTrangAnhOrders(orders) {
-  if (Array.isArray(orders)) {
-    window.taOrders = orders.filter(
-      o => o.name && o.product
-    );
-  }
-
-  if (!window.taToastTimer && window.taOrders.length) {
-    showTrangAnhToast();
-
-    window.taToastTimer = setInterval(
-      showTrangAnhToast, 22000
-    );
-  }
-}
-
-function showTrangAnhToast() {
-  const orders = window.taOrders;
-  if (!orders.length) return;
-
-  const order = orders[
-    window.taToastIndex % orders.length
-  ];
-
-  window.taToastIndex++;
-
-  const box = document.getElementById("purchaseToast");
-  const content = box.querySelector(".toast-content");
-
-  const title = document.createElement("strong");
-  title.textContent = "Khách hàng đã đặt hàng";
-
-  const detail = document.createElement("p");
-  detail.textContent = order.name + " đã đặt " + order.product;
-
-  const time = document.createElement("small");
-  time.textContent = order.time || "Đơn hàng đã ghi nhận";
-
-  content.replaceChildren(title, detail, time);
-
-  box.classList.add("show");
-
-  clearTimeout(window.taHideToast);
-
-  window.taHideToast = setTimeout(() => {
-    box.classList.remove("show");
-  }, 5000);
-}
-
-function loadTrangAnhOrders() {
-  const script = document.createElement("script");
-
-  script.src = GOOGLE_SCRIPT_URL
-    + "?action=recentOrders&callback=renderTrangAnhOrders&t="
-    + Date.now();
-
-  script.onerror = () => {
-    console.log("Chưa tải được danh sách đơn hàng.");
-  };
-
-  document.body.appendChild(script);
-}
-
-loadTrangAnhOrders();
-setInterval(loadTrangAnhOrders, 60000);
+  
 <script>
 // CẬP NHẬT 3 DÒNG DƯỚI ĐÂY TRƯỚC KHI ĐĂNG WEBSITE:
 const SHOP_PHONE = ""; // Ví dụ: 0987279275
