@@ -5,6 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#8b3454">
 <title>TRANG ANH | Giày nữ thanh lịch</title>
+  /* HIỆU ỨNG THÔNG BÁO ĐƠN HÀNG */
+.purchase-toast {
+  position: fixed;
+  left: 20px;
+  bottom: 22px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(340px, calc(100% - 40px));
+  padding: 14px;
+  background: #fff;
+  border: 1px solid #f3d4df;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px #0002;
+  opacity: 0;
+  transform: translateX(-120%);
+  transition: all .5s ease;
+  pointer-events: none;
+}
+
+.purchase-toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fce4ec;
+  color: #d92768;
+  font-size: 22px;
+}
+
+.toast-content strong {
+  display: block;
+  color: #873650;
+  font-size: 13px;
+}
+
+.toast-content p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #51464b;
+}
+
+.toast-content small {
+  color: #999;
+  font-size: 11px;
+}
+
+@media(max-width:600px) {
+  .purchase-toast {
+    left: 12px;
+    bottom: 75px;
+    width: calc(100% - 24px);
+  }
+}
 <style>
 :root{--wine:#873650;--rose:#f8e9ed;--ink:#292329;--muted:#756b70;--gold:#c39a62;--paper:#fffaf8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
@@ -94,7 +156,14 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 </main>
 <footer><div class="brand">GIÀY TRANG ANH</div><p>GIÀY NỮ THANH LỊCH<br>Miễn phí vận chuyển • Thanh toán khi nhận hàng<br>Hotline: <a id="footerPhone" href="#">Chưa cập nhật</a></p><small>© 2026 TRANG ANH. All rights reserved.</small></footer>
 <a class="float" id="chatLink" href="#dat-hang">Chat tư vấn 0987249275 </a>
-  
+  <div class="purchase-toast" id="purchaseToast">
+  <div class="toast-icon">✓</div>
+  <div class="toast-content">
+    <strong>Khách hàng vừa đặt hàng</strong>
+    <p>Đang cập nhật đơn hàng...</p>
+    <small>TRANG ANH</small>
+  </div>
+</div>
 <script>
 // CẬP NHẬT 3 DÒNG DƯỚI ĐÂY TRƯỚC KHI ĐĂNG WEBSITE:
 const SHOP_PHONE = ""; // Ví dụ: 0987279275
@@ -130,4 +199,73 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
   finally{button.disabled=false;button.textContent='GỬI ĐƠN HÀNG';}
 });
 </script>
+  // DỮ LIỆU ĐƠN HÀNG THẬT TỪ GOOGLE SHEETS
+window.taOrders = [];
+window.taToastIndex = 0;
+
+function renderTrangAnhOrders(orders) {
+  if (Array.isArray(orders)) {
+    window.taOrders = orders.filter(
+      o => o.name && o.product
+    );
+  }
+
+  if (!window.taToastTimer && window.taOrders.length) {
+    showTrangAnhToast();
+
+    window.taToastTimer = setInterval(
+      showTrangAnhToast, 22000
+    );
+  }
+}
+
+function showTrangAnhToast() {
+  const orders = window.taOrders;
+  if (!orders.length) return;
+
+  const order = orders[
+    window.taToastIndex % orders.length
+  ];
+
+  window.taToastIndex++;
+
+  const box = document.getElementById("purchaseToast");
+  const content = box.querySelector(".toast-content");
+
+  const title = document.createElement("strong");
+  title.textContent = "Khách hàng đã đặt hàng";
+
+  const detail = document.createElement("p");
+  detail.textContent = order.name + " đã đặt " + order.product;
+
+  const time = document.createElement("small");
+  time.textContent = order.time || "Đơn hàng đã ghi nhận";
+
+  content.replaceChildren(title, detail, time);
+
+  box.classList.add("show");
+
+  clearTimeout(window.taHideToast);
+
+  window.taHideToast = setTimeout(() => {
+    box.classList.remove("show");
+  }, 5000);
+}
+
+function loadTrangAnhOrders() {
+  const script = document.createElement("script");
+
+  script.src = GOOGLE_SCRIPT_URL
+    + "?action=recentOrders&callback=renderTrangAnhOrders&t="
+    + Date.now();
+
+  script.onerror = () => {
+    console.log("Chưa tải được danh sách đơn hàng.");
+  };
+
+  document.body.appendChild(script);
+}
+
+loadTrangAnhOrders();
+setInterval(loadTrangAnhOrders, 60000);
 </body></html>
