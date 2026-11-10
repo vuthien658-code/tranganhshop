@@ -155,6 +155,15 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   .product-video { border-radius: 10px; }
 }
 
+
+.video-second { margin-top: 30px; }
+.video-second-heading {
+  color: var(--wine);
+  text-align: center;
+  font: 24px Georgia, serif;
+  margin: 0 0 16px;
+}
+
 </style>
 </head>
 <body>
@@ -189,7 +198,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
       style="width:100%; height:100%;"
     >
      <img
-      src="images/Ivory Pearl Mary Jane Heels in Bloom.png"
+      src="images/z6330034724593_dad23084d8b60de7ea098c24db894d61.jpg"
       alt="Giày nữ Trang Anh"
       style="width:100%; height:auto;"
     >
@@ -204,36 +213,30 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   </div>
 </section>
 
-<!-- VIDEO GIỚI THIỆU SẢN PHẨM -->
+
 <section class="video-section" id="video-san-pham">
+  <h2 class="video-heading">Xem video giày nữ TRANG ANH</h2>
+  <p class="video-caption">Cùng ngắm sản phẩm qua video thực tế trước khi chọn mẫu và đặt hàng.</p>
+  <video class="product-video" controls playsinline preload="metadata"
+         aria-label="Video giới thiệu giày nữ TRANG ANH">
+    <source src="./images/den.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ phát video.
+  </video>
 
-    <h2 class="video-heading">
-        Xem video giày nữ TRANG ANH
-    </h2>
 
-    <p class="video-caption">
-        Cùng ngắm sản phẩm qua video thực tế
-        trước khi chọn mẫu và đặt hàng.
-    </p>
-
-    <video
-        class="product-video"
-        controls
-        playsinline
-        preload="metadata"
-        style="width:100%; max-height:620px; background:#222;"
-    >
-        <source src="./images/den.mp4?v=6" type="video/mp4">
-        Trình duyệt không hỗ trợ phát video.
+  <div class="video-second">
+    <h3 class="video-second-heading">Video sản phẩm tiếp theo</h3>
+    <video class="product-video" controls playsinline preload="metadata"
+           style="width:100%; max-height:620px; background:#222;"
+           aria-label="Video sản phẩm thứ hai của TRANG ANH">
+      <source src="./images/giay-trang-anh-video-2.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ phát video.
     </video>
+  </div>
 
-    <a class="video-order-link" href="#dat-hang">
-        ĐẶT HÀNG NGAY
-    </a>
-
+  <a class="video-order-link" href="#dat-hang">ĐẶT HÀNG NGAY</a>
 </section>
 
- 
 <section class="order-wrap" id="dat-hang"><div class="order">
   <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
   <form id="orderForm">
