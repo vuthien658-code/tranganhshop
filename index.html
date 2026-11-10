@@ -164,6 +164,40 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   margin: 0 0 16px;
 }
 
+
+/* ẢNH SẢN PHẨM THẬT TRANG ANH */
+.product-photo {
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff5f8;
+}
+.product-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.product-height {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 9px 14px;
+  border-radius: 22px;
+  color: #fff;
+  background: #d92768;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  box-shadow: 0 4px 12px #6b183329;
+}
+@media(max-width:700px) {
+  .product-photo { height: 290px; }
+}
+
 </style>
 </head>
 <body>
@@ -182,40 +216,57 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 </div></section>
 
 
+
 <section class="section" id="san-pham">
-  <div class="section-head"><span>BỘ SƯU TẬP TRANG ANH</span><h2>Mẫu giày được yêu thích</h2><p>Chọn kiểu dáng phù hợp với phong cách của bạn</p></div>
+  <div class="section-head">
+    <span>BỘ SƯU TẬP TRANG ANH</span>
+    <h2>Mẫu giày được yêu thích</h2>
+    <p>Chọn kiểu dáng phù hợp với phong cách của bạn</p>
+  </div>
+
   <div class="products">
-    <div class="product-banner">
-    <img
-      src="images/shoefit-ai-1764470471065.png"
-      alt="Giày nữ Trang Anh"
-      style="width:100%; height:100%;"
-    >
-</div>
-    <img
-      src="images/shoefit-ai-1764470022341.png"
-      alt="Giày nữ Trang Anh"
-      style="width:100%; height:100%;"
-    >
-     <img
-      src="images/z6330034724593_dad23084d8b60de7ea098c24db894d61.jpg"
-      alt="Giày nữ Trang Anh"
-      style="width:100%; height:auto;"
-    >
-    <img
-      src="images/1791210560832_2259060618870600801_g2529992858116246820_d4d31ad0edfa80b4c068eddd3704c917.jpg"
-      alt="Giày nữ Trang Anh"
-      style="width:100%; height:100%;"
-    >
-</div>
-    <article class="product"><div class="product-art"><b>GÓT 10 CM</b></div><div class="product-info"><h3>Giày cao gót thanh lịch 10 cm</h3><div class="desc">Kiểu dáng nữ tính, dễ phối trang phục; phù hợp đi làm, đi tiệc và gặp gỡ bạn bè.</div><div class="price">179.000đ <span class="old">199.000đ</span></div><div class="colors">Màu tham khảo: Đen • Nâu • Kem Đỏ Nâu</div><a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 10 cm')">ĐẶT MUA NGAY</a></div></article>
-    <article class="product"><div class="product-art"><b>GÓT 7 CM</b></div><div class="product-info"><h3>Giày cao gót tôn dáng 7 cm</h3><div class="desc">Thiết kế nổi bật, tạo vẻ ngoài sang trọng và giúp tổng thể trang phục thêm cuốn hút.</div><div class="price">179.000đ <span class="old">189.000đ</span></div><div class="colors">Màu tham khảo: Đen • Nâu • Kem Đỏ Nâu</div><a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 7 cm')">ĐẶT MUA NGAY</a></div></article>
+    <article class="product">
+      <div class="product-photo">
+        <img
+          src="./images/giay-cao-got-10cm.png"
+          alt="Giày cao gót Trang Anh màu nâu, gót 10 cm"
+          loading="lazy"
+        >
+        <span class="product-height">GÓT 10 CM</span>
+      </div>
+      <div class="product-info">
+        <h3>Giày cao gót thanh lịch 10 cm</h3>
+        <div class="desc">Thiết kế quai ngang nữ tính, nổi bật với chi tiết trang trí tinh tế. Phù hợp khi đi làm, gặp gỡ và dự tiệc.</div>
+        <div class="price">179.000đ</div>
+        <div class="colors">Màu trong ảnh: Nâu</div>
+        <a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 10 cm')">ĐẶT MUA NGAY</a>
+      </div>
+    </article>
+
+    <article class="product">
+      <div class="product-photo">
+        <img
+          src="./images/giay-cao-got-7cm.jpg"
+          alt="Giày cao gót Trang Anh màu đen, gót 7 cm"
+          loading="lazy"
+        >
+        <span class="product-height">GÓT 7 CM</span>
+      </div>
+      <div class="product-info">
+        <h3>Giày cao gót thanh lịch 7 cm</h3>
+        <div class="desc">Thiết kế quai ngang màu đen, đế dày và chi tiết khóa trang trí. Dễ phối cùng nhiều trang phục.</div>
+        <div class="price">179.000đ</div>
+        <div class="colors">Màu trong ảnh: Đen</div>
+        <a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 7 cm')">ĐẶT MUA NGAY</a>
+      </div>
+    </article>
   </div>
 </section>
 
 
+
 <section class="video-section" id="video-san-pham">
-  <h2 class="video-heading">Xem video mẫu 10p nhà TRANG ANH </h2>
+  <h2 class="video-heading">Xem video giày nữ TRANG ANH</h2>
   <p class="video-caption">Cùng ngắm sản phẩm qua video thực tế trước khi chọn mẫu và đặt hàng.</p>
   <video class="product-video" controls playsinline preload="metadata"
          aria-label="Video giới thiệu giày nữ TRANG ANH">
@@ -225,7 +276,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 
 
   <div class="video-second">
-    <h3 class="video-second-heading">Video GIÀY CAO 7CM </h3>
+    <h3 class="video-second-heading">Video sản phẩm tiếp theo</h3>
     <video class="product-video" controls playsinline preload="metadata"
            style="width:100%; max-height:620px; background:#222;"
            aria-label="Video sản phẩm thứ hai của TRANG ANH">
