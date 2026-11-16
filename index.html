@@ -493,6 +493,88 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   .ta-countdown-label { font-size: 10px; }
 }
 
+
+/* COMBO TIET KIEM TRONG MUC DAT HANG */
+.ta-combo-box {
+  margin: 0 0 22px;
+  padding: 18px;
+  border: 1px solid #f1c5d5;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff5f8, #fff);
+}
+.ta-combo-box h3 {
+  margin: 0 0 6px;
+  color: var(--wine);
+  font: 24px Georgia, serif;
+}
+.ta-combo-box .ta-combo-subtitle {
+  margin: 0 0 14px;
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 800;
+}
+.ta-combo-list {
+  display: grid;
+  gap: 10px;
+}
+.ta-combo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 13px;
+  border: 1px solid #f1dce4;
+  border-radius: 10px;
+  background: #fff;
+}
+.ta-combo-copy { min-width: 0; }
+.ta-combo-name {
+  display: block;
+  color: #47343c;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.ta-combo-saving {
+  display: block;
+  margin-top: 4px;
+  color: #27804d;
+  font-size: 12px;
+}
+.ta-combo-price {
+  flex: 0 0 auto;
+  color: var(--pink);
+  font-size: 17px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.ta-order-total {
+  display: none;
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #fff0f5;
+  color: var(--wine);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.ta-order-total strong {
+  color: var(--pink);
+  font-size: 19px;
+}
+.ta-size-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+@media(max-width:600px) {
+  .ta-combo-box { padding: 14px 11px; }
+  .ta-combo-box h3 { font-size: 21px; }
+  .ta-combo-item { align-items: flex-start; padding: 11px 9px; }
+  .ta-combo-price { font-size: 15px; }
+}
+
 </style>
 </head>
 <body>
@@ -526,7 +608,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
         <h3 id="ta-title-10cm">Giày cao gót 10cm</h3>
         <p>5 hình ảnh sản phẩm 10cm</p>
       </div>
-      <div class="ta-gallery-price">179.000đ</div><span class="old">299.000đ</span>
+      <div class="ta-gallery-price">179.000đ</div><span class="old">269.000đ</span>
     </div>
     <div class="ta-gallery-row">
       <button class="ta-gallery-arrow" type="button"
@@ -580,7 +662,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
               aria-label="Xem ảnh 10cm tiếp theo">›</button>
     </div>
     <div class="ta-gallery-actions">
-      <a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 10 cm')">ĐẶT MUA GIÀY 10CM</a>
+      <a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 10 cm - 179.000đ')">ĐẶT MUA GIÀY 10CM</a>
     </div>
   </article>
 
@@ -645,7 +727,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
               aria-label="Xem ảnh 7cm tiếp theo">›</button>
     </div>
     <div class="ta-gallery-actions">
-      <a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 7 cm')">ĐẶT MUA GIÀY 7CM</a>
+      <a class="btn" href="#dat-hang" onclick="chooseProduct('Giày cao gót 7 cm - 169.000đ')">ĐẶT MUA GIÀY 7CM</a>
     </div>
   </article>
 </section>
@@ -737,16 +819,54 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 
 <section class="order-wrap" id="dat-hang"><div class="order">
   <h2>Đặt hàng ngay</h2><p>Điền thông tin, TRANG ANH sẽ liên hệ xác nhận đơn hàng với bạn.</p>
+
+  <div class="ta-combo-box">
+    <h3>🎁 Combo tiết kiệm</h3>
+    <p class="ta-combo-subtitle">🔥 ƯU ĐÃI MUA NHIỀU – TIẾT KIỆM NHIỀU</p>
+    <div class="ta-combo-list">
+      <div class="ta-combo-item">
+        <div class="ta-combo-copy">
+          <span class="ta-combo-name">✅ 2 đôi cao gót 7cm</span>
+          <span class="ta-combo-saving">Tiết kiệm 38.000đ</span>
+        </div>
+        <span class="ta-combo-price">300.000đ</span>
+      </div>
+      <div class="ta-combo-item">
+        <div class="ta-combo-copy">
+          <span class="ta-combo-name">✅ 2 đôi cao gót 10cm</span>
+          <span class="ta-combo-saving">Tiết kiệm 18.000đ</span>
+        </div>
+        <span class="ta-combo-price">340.000đ</span>
+      </div>
+      <div class="ta-combo-item">
+        <div class="ta-combo-copy">
+          <span class="ta-combo-name">✅ 1 đôi 7cm + 1 đôi 10cm</span>
+          <span class="ta-combo-saving">Tiết kiệm 28.000đ</span>
+        </div>
+        <span class="ta-combo-price">320.000đ</span>
+      </div>
+    </div>
+  </div>
+
   <form id="orderForm">
     <div class="form-grid">
       <div class="field"><label for="name">Họ và tên *</label><input id="name" name="name" required placeholder="Nhập họ tên"></div>
       <div class="field"><label for="phone">Số điện thoại *</label><input id="phone" name="phone" required inputmode="tel" pattern="[0-9+ .()-]{9,15}" placeholder="Nhập số điện thoại"></div>
-      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required><option value="">-- Chọn sản phẩm --</option><option>Giày cao gót 7 cm</option><option>Giày cao gót 10 cm</option><option>Combo 2 đôi</option></select></div>
+      <div class="field full"><label for="product">Sản phẩm *</label><select id="product" name="product" required>
+        <option value="">-- Chọn sản phẩm / combo --</option>
+        <option value="Giày cao gót 7 cm - 179.000đ">1 đôi giày cao gót 7cm – 179.000đ</option>
+        <option value="Giày cao gót 10 cm - 179.000đ">1 đôi giày cao gót 10cm – 179.000đ</option>
+        <option value="Combo 2 đôi cao gót 7cm - 300.000đ">Combo 2 đôi cao gót 7cm – 300.000đ</option>
+        <option value="Combo 2 đôi cao gót 10cm - 340.000đ">Combo 2 đôi cao gót 10cm – 340.000đ</option>
+        <option value="Combo 1 đôi 7cm + 1 đôi 10cm - 320.000đ">Combo 1 đôi 7cm + 1 đôi 10cm – 320.000đ</option>
+      </select></div>
+      <div class="ta-order-total" id="taOrderTotal" aria-live="polite"></div>
       <div class="field"><label for="size">Kích cỡ</label><input id="size" name="size" placeholder="Ví dụ: 37"></div>
       <div class="field"><label for="color">Màu sắc</label><select id="color" name="color"><option value="">-- Chọn màu --</option><option>Đen</option><option>Nâu</option><option>Kem</option><option>Khác / cần tư vấn</option></select></div>
       <div class="field full"><label for="address">Địa chỉ nhận hàng *</label><textarea id="address" name="address" required placeholder="Số nhà, đường, xã/phường, tỉnh/thành phố"></textarea></div>
-      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Số lượng hoặc yêu cầu thêm (nếu có)"></div>
+      <div class="field full"><label for="note">Ghi chú</label><input id="note" name="note" placeholder="Với combo, ghi rõ size và màu của từng đôi. Ví dụ: Đôi 1 size 37 màu đen; đôi 2 size 38 màu kem."></div>
     </div>
+    <p class="ta-size-note">Đặt combo 2 đôi? Vui lòng ghi size và màu riêng cho từng đôi trong ô Ghi chú.</p>
     <button class="btn" type="submit">GỬI ĐƠN HÀNG</button>
     <div class="notice" id="formNotice">Thông tin của bạn được dùng để tư vấn và xác nhận đơn hàng. Vui lòng kiểm tra số điện thoại và địa chỉ trước khi gửi.</div>
   </form>
@@ -931,6 +1051,38 @@ setInterval(loadTrangAnhOrders, 60000);
 
   updateCountdown();
   window.setInterval(updateCountdown, 1000);
+})();
+</script>
+
+
+<script>
+/* HIEN GIA COMBO KHI KHACH CHON SAN PHAM */
+(function () {
+  const productSelect = document.getElementById("product");
+  const summary = document.getElementById("taOrderTotal");
+  if (!productSelect || !summary) return;
+
+  const prices = {
+    "Giày cao gót 7 cm - 179.000đ": "179.000đ",
+    "Giày cao gót 10 cm - 179.000đ": "179.000đ",
+    "Combo 2 đôi cao gót 7cm - 300.000đ": "300.000đ",
+    "Combo 2 đôi cao gót 10cm - 340.000đ": "340.000đ",
+    "Combo 1 đôi 7cm + 1 đôi 10cm - 320.000đ": "320.000đ"
+  };
+
+  productSelect.addEventListener("change", function () {
+    const selected = productSelect.value;
+    if (!selected || !prices[selected]) {
+      summary.style.display = "none";
+      summary.textContent = "";
+      return;
+    }
+    const isCombo = selected.startsWith("Combo");
+    summary.style.display = "block";
+    summary.innerHTML = isCombo
+      ? 'Đơn hàng đã chọn: <strong>' + prices[selected] + '</strong><br><span>Vui lòng ghi size và màu của từng đôi trong phần Ghi chú.</span>'
+      : 'Giá sản phẩm: <strong>' + prices[selected] + '</strong>';
+  });
 })();
 </script>
 
