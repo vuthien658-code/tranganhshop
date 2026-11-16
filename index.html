@@ -347,6 +347,369 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
 
   <a class="video-order-link" href="#dat-hang">ĐẶT HÀNG NGAY</a>
 </section>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#873650">
+  <title>TRANG ANH | Bộ sưu tập giày cao gót</title>
+  <style>
+    :root {
+      --wine: #873650;
+      --pink: #d92768;
+      --pale: #fff4f7;
+      --ink: #30252a;
+      --muted: #786c72;
+      --line: #f0dce4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 28px 14px 54px;
+      background: #fffafb;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .page { width: min(1120px, 100%); margin: 0 auto; }
+    .brand {
+      text-align: center;
+      color: var(--wine);
+      font: bold 34px Georgia, serif;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .tagline {
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+    .product-section {
+      margin: 0 0 42px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(90, 35, 56, .06);
+    }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .section-heading h1 {
+      margin: 0 0 7px;
+      color: var(--wine);
+      font: 29px Georgia, serif;
+    }
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .price {
+      flex: 0 0 auto;
+      color: var(--pink);
+      font-size: 23px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .slider-wrap { position: relative; }
+    .image-track {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding: 4px 2px 16px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+      scrollbar-color: #d9a7b9 #faeaf0;
+    }
+    .image-track::-webkit-scrollbar { height: 8px; }
+    .image-track::-webkit-scrollbar-track {
+      background: #faeaf0;
+      border-radius: 20px;
+    }
+    .image-track::-webkit-scrollbar-thumb {
+      background: #d9a7b9;
+      border-radius: 20px;
+    }
+    .image-card {
+      position: relative;
+      flex: 0 0 calc((100% - 42px) / 4);
+      min-width: 0;
+      overflow: hidden;
+      scroll-snap-align: start;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff8fa;
+    }
+    .image-frame {
+      position: relative;
+      display: grid;
+      place-items: center;
+      height: 255px;
+      background:
+        radial-gradient(circle at 50% 35%, #fff 0, #fff5f8 58%, #f6e5ec 100%);
+    }
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px;
+      color: #a58a95;
+      text-align: center;
+      font-size: 13px;
+    }
+    .placeholder .plus {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px dashed #d8a6b8;
+      border-radius: 50%;
+      color: var(--pink);
+      font-size: 28px;
+      background: #fff;
+    }
+    .card-footer {
+      padding: 12px;
+      text-align: center;
+      background: #fff;
+    }
+    .image-number {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--wine);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .choose-button {
+      display: inline-block;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 22px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .file-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 2px;
+    }
+    .arrow {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      background: var(--wine);
+      font-size: 23px;
+      cursor: pointer;
+    }
+    .arrow:disabled { opacity: .35; cursor: not-allowed; }
+    .slider-hint {
+      margin: 10px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 11px;
+    }
+    .instructions {
+      padding: 18px 20px;
+      border: 1px dashed #d9a7b9;
+      border-radius: 14px;
+      background: var(--pale);
+      color: #694d59;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .instructions strong { color: var(--wine); }
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: #fff;
+      color: #a51d52;
+      overflow-wrap: anywhere;
+    }
+    @media (max-width: 760px) {
+      body { padding: 20px 10px 36px; }
+      .brand { font-size: 28px; }
+      .product-section { padding: 16px 12px; margin-bottom: 24px; }
+      .section-heading { display: block; }
+      .section-heading h1 { font-size: 25px; }
+      .price { margin-top: 12px; font-size: 21px; }
+      .image-card { flex-basis: 78%; }
+      .image-frame { height: 300px; }
+    }
+    @media (min-width: 761px) and (max-width: 980px) {
+      .image-card { flex-basis: calc((100% - 28px) / 3); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand">TRANG ANH</div>
+    <div class="tagline">TÔN VINH VẺ ĐẸP PHỤ NỮ VIỆT</div>
+
+    <section class="product-section" aria-labelledby="title-10cm">
+      <div class="section-heading">
+        <div>
+          <h1 id="title-10cm">Giày cao gót 10cm</h1>
+          <p>Thêm tối đa 5 ảnh sản phẩm 10cm. Kéo ngang để xem từng ảnh.</p>
+        </div>
+        <div class="price">179.000đ</div>
+      </div>
+      <div class="slider-wrap">
+        <div class="image-track" id="track-10cm">
+          <!-- Các ô ảnh 10cm: tên file lần lượt giay-10cm-1.jpg đến giay-10cm-5.jpg -->
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 10cm số 1</span></div><img src="./images/giay-10cm-1.jpg" hidden alt="Giày cao gót 10cm ảnh 1" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 10cm – 1/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-10cm-1.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 10cm số 2</span></div><img src="./images/giay-10cm-2.jpg" hidden alt="Giày cao gót 10cm ảnh 2" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 10cm – 2/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-10cm-2.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 10cm số 3</span></div><img src="./images/giay-10cm-3.jpg" hidden alt="Giày cao gót 10cm ảnh 3" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 10cm – 3/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-10cm-3.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 10cm số 4</span></div><img src="./images/giay-10cm-4.jpg" hidden alt="Giày cao gót 10cm ảnh 4" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 10cm – 4/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-10cm-4.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 10cm số 5</span></div><img src="./images/giay-10cm-5.jpg" hidden alt="Giày cao gót 10cm ảnh 5" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 10cm – 5/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-10cm-5.jpg"></label></div>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <button class="arrow" type="button" data-track="track-10cm" data-direction="-1" aria-label="Ảnh 10cm trước">‹</button>
+          <button class="arrow" type="button" data-track="track-10cm" data-direction="1" aria-label="Ảnh 10cm tiếp theo">›</button>
+        </div>
+        <p class="slider-hint">Trên điện thoại: vuốt sang trái hoặc phải để xem 5 ảnh.</p>
+      </div>
+    </section>
+
+    <section class="product-section" aria-labelledby="title-7cm">
+      <div class="section-heading">
+        <div>
+          <h1 id="title-7cm">Giày cao gót 7cm</h1>
+          <p>Thêm tối đa 5 ảnh sản phẩm 7cm. Kéo ngang để xem từng ảnh.</p>
+        </div>
+        <div class="price">179.000đ</div>
+      </div>
+      <div class="slider-wrap">
+        <div class="image-track" id="track-7cm">
+          <!-- Các ô ảnh 7cm: tên file lần lượt giay-7cm-1.jpg đến giay-7cm-5.jpg -->
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 7cm số 1</span></div><img src="./images/giay-7cm-1.jpg" hidden alt="Giày cao gót 7cm ảnh 1" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 7cm – 1/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-7cm-1.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 7cm số 2</span></div><img src="./images/giay-7cm-2.jpg" hidden alt="Giày cao gót 7cm ảnh 2" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 7cm – 2/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-7cm-2.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 7cm số 3</span></div><img src="./images/giay-7cm-3.jpg" hidden alt="Giày cao gót 7cm ảnh 3" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 7cm – 3/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-7cm-3.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 7cm số 4</span></div><img src="./images/giay-7cm-4.jpg" hidden alt="Giày cao gót 7cm ảnh 4" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 7cm – 4/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-7cm-4.jpg"></label></div>
+          </article>
+          <article class="image-card">
+            <div class="image-frame"><div class="placeholder"><span class="plus">+</span><span>Chưa chọn ảnh 7cm số 5</span></div><img src="./images/giay-7cm-5.jpg" hidden alt="Giày cao gót 7cm ảnh 5" onload="this.hidden=false; this.parentElement.querySelector('.placeholder').hidden=true" onerror="this.hidden=true"></div>
+            <div class="card-footer"><span class="image-number">Ảnh 7cm – 5/5</span><label class="choose-button">Chọn ảnh<input class="file-input" type="file" accept="image/*" data-filename="giay-7cm-5.jpg"></label></div>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <button class="arrow" type="button" data-track="track-7cm" data-direction="-1" aria-label="Ảnh 7cm trước">‹</button>
+          <button class="arrow" type="button" data-track="track-7cm" data-direction="1" aria-label="Ảnh 7cm tiếp theo">›</button>
+        </div>
+        <p class="slider-hint">Trên điện thoại: vuốt sang trái hoặc phải để xem 5 ảnh.</p>
+      </div>
+    </section>
+
+    <aside class="instructions">
+      <strong>Cách đưa ảnh lên website:</strong><br>
+      1. Nhấn “Chọn ảnh” ở từng ô để xem thử ảnh trên mẫu HTML này.<br>
+      2. Để ảnh hiện cố định trên GitHub Pages, tải ảnh lên thư mục <code>images</code> của GitHub với đúng tên được ghi bên dưới mỗi nút, ví dụ <code>giay-10cm-1.jpg</code> hoặc <code>giay-7cm-1.jpg</code>.<br>
+      3. Sau khi tải ảnh lên GitHub, mở lại trang này để ảnh tự hiện. Ảnh chọn bằng nút trong trang chỉ là xem thử trên máy hiện tại, chưa tự tải lên GitHub.
+    </aside>
+  </main>
+
+  <script>
+    // Chọn ảnh từ máy tính để xem thử trong từng ô.
+    document.querySelectorAll(".file-input").forEach(input => {
+      input.addEventListener("change", event => {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+        if (!file.type.startsWith("image/")) {
+          alert("Vui lòng chọn một file ảnh.");
+          input.value = "";
+          return;
+        }
+        const card = input.closest(".image-card");
+        const img = card.querySelector(".image-frame img");
+        const placeholder = card.querySelector(".placeholder");
+        if (img.dataset.previewUrl) URL.revokeObjectURL(img.dataset.previewUrl);
+        const previewUrl = URL.createObjectURL(file);
+        img.dataset.previewUrl = previewUrl;
+        img.src = previewUrl;
+        img.hidden = false;
+        placeholder.hidden = true;
+      });
+    });
+
+    // Nút mũi tên trượt ngang riêng cho từng nhóm ảnh.
+    document.querySelectorAll(".arrow").forEach(button => {
+      button.addEventListener("click", () => {
+        const track = document.getElementById(button.dataset.track);
+        const direction = Number(button.dataset.direction);
+        const card = track.querySelector(".image-card");
+        if (!card) return;
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 14;
+        track.scrollBy({
+          left: direction * (card.getBoundingClientRect().width + gap),
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
 
 
 <!-- ẢNH ĐÁNH GIÁ KHÁCH HÀNG -->
