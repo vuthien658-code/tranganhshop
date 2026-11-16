@@ -407,6 +407,92 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   .ta-gallery-image { height: 300px; }
 }
 
+
+/* BO DEM NGUOC UU DAI TRANG ANH */
+.ta-countdown {
+  max-width: 1060px;
+  margin: 8px auto 42px;
+  padding: 26px 20px;
+  border-radius: 18px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(120deg, #8f3152, #d92768);
+  box-shadow: 0 10px 28px rgba(120, 30, 70, .18);
+}
+.ta-countdown .eyebrow {
+  color: #ffe3ed;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.ta-countdown h2 {
+  margin: 9px 0 8px;
+  color: #fff;
+  font: 30px Georgia, serif;
+}
+.ta-countdown .intro {
+  margin: 0 0 18px;
+  color: #ffeaf1;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.ta-countdown-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin: 18px 0 12px;
+}
+.ta-countdown-unit {
+  min-width: 75px;
+  padding: 12px 10px 10px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 12px;
+  background: rgba(255,255,255,.13);
+}
+.ta-countdown-number {
+  display: block;
+  color: #fff;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.ta-countdown-label {
+  display: block;
+  margin-top: 6px;
+  color: #ffe5ee;
+  font-size: 11px;
+}
+.ta-countdown-deadline {
+  color: #ffe6ed;
+  font-size: 12px;
+}
+.ta-countdown-cta {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 13px 26px;
+  border-radius: 30px;
+  background: #fff;
+  color: #a51c50;
+  font-weight: 800;
+  text-decoration: none;
+}
+.ta-countdown-cta:hover { background: #fff0f5; }
+.ta-countdown-expired {
+  margin: 16px 0 0;
+  color: #fff;
+  font-weight: 700;
+}
+@media(max-width:600px) {
+  .ta-countdown { margin: 6px 12px 30px; padding: 22px 12px; }
+  .ta-countdown h2 { font-size: 25px; }
+  .ta-countdown-grid { gap: 6px; }
+  .ta-countdown-unit { min-width: 0; flex: 1; padding: 11px 5px; }
+  .ta-countdown-number { font-size: 27px; }
+  .ta-countdown-label { font-size: 10px; }
+}
+
 </style>
 </head>
 <body>
@@ -440,7 +526,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
         <h3 id="ta-title-10cm">Giày cao gót 10cm</h3>
         <p>5 hình ảnh sản phẩm 10cm</p>
       </div>
-      <div class="ta-gallery-price">179.000đ</div>
+      <div class="ta-gallery-price">179.000đ</div><span class="old">299.000đ</span>
     </div>
     <div class="ta-gallery-row">
       <button class="ta-gallery-arrow" type="button"
@@ -505,7 +591,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
         <h3 id="ta-title-7cm">Giày cao gót 7cm</h3>
         <p>5 hình ảnh sản phẩm 7cm</p>
       </div>
-      <div class="ta-gallery-price">179.000đ</div>
+      <div class="ta-gallery-price">169.000đ</div><span class="old">269.000đ</span>
     </div>
     <div class="ta-gallery-row">
       <button class="ta-gallery-arrow" type="button"
@@ -564,6 +650,40 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   </article>
 </section>
 
+
+
+
+<!-- DEM NGUOC THOI HAN UU DAI -->
+<section class="ta-countdown" id="dem-nguoc-uu-dai" aria-live="polite">
+  <div class="eyebrow">ƯU ĐÃI TRANG ANH</div>
+  <h2 id="taCountdownTitle">Ưu đãi 179.000đ – Miễn phí vận chuyển</h2>
+  <p class="intro">Thời gian còn lại của chương trình ưu đãi:</p>
+  <div class="ta-countdown-grid" id="taCountdownGrid">
+    <div class="ta-countdown-unit">
+      <span class="ta-countdown-number" id="taDays">--</span>
+      <span class="ta-countdown-label">Ngày</span>
+    </div>
+    <div class="ta-countdown-unit">
+      <span class="ta-countdown-number" id="taHours">--</span>
+      <span class="ta-countdown-label">Giờ</span>
+    </div>
+    <div class="ta-countdown-unit">
+      <span class="ta-countdown-number" id="taMinutes">--</span>
+      <span class="ta-countdown-label">Phút</span>
+    </div>
+    <div class="ta-countdown-unit">
+      <span class="ta-countdown-number" id="taSeconds">--</span>
+      <span class="ta-countdown-label">Giây</span>
+    </div>
+  </div>
+  <div class="ta-countdown-deadline" id="taCountdownDeadline">
+    Hạn ưu đãi: 30/11/2026, 23:59 (giờ Việt Nam)
+  </div>
+  <p class="ta-countdown-expired" id="taCountdownExpired" hidden>
+    Chương trình ưu đãi đã kết thúc. Vui lòng liên hệ Trang Anh để cập nhật giá hiện tại.
+  </p>
+  <a class="ta-countdown-cta" href="#dat-hang">ĐẶT HÀNG NGAY</a>
+</section>
 
 
 <section class="video-section" id="video-san-pham">
@@ -632,7 +752,7 @@ footer{background:#2f252a;color:#f8edef;padding:35px 6%;text-align:center}footer
   </form>
 </div></section>
 
-<section class="promo" id="uu-dai"><h2>Ưu đãi dành riêng cho quý cô</h2><p>Mua 1 đôi chỉ <strong>179.000đ</strong> – Miễn phí vận chuyển</p><p>Mua combo 2 đôi chỉ <strong>320.000đ</strong> – Tiết kiệm hơn</p><p>Thanh toán COD: nhận hàng rồi thanh toán</p><a class="btn" style="background:#fff;color:#873650" href="#dat-hang">NHẬN ƯU ĐÃI NGAY</a></section>
+<section class="promo" id="uu-dai"><h2>Ưu đãi dành riêng cho quý cô</h2><p>Mua 1 đôi chỉ <strong>179.000đ</strong> – Miễn phí vận chuyển</p><p>Mua combo 2 đôi chỉ <strong>340.000đ</strong> – Tiết kiệm hơn</p><p>Thanh toán COD: nhận hàng rồi thanh toán</p><a class="btn" style="background:#fff;color:#873650" href="#dat-hang">NHẬN ƯU ĐÃI NGAY</a></section>
 <section class="section"><div class="section-head"><span>AN TÂM MUA SẮM</span><h2>Dịch vụ từ TRANG ANH</h2></div><div class="benefits">
   <div class="benefit"><div class="symbol">♡</div><h3>Tư vấn tận tình</h3><p>Hỗ trợ lựa chọn mẫu giày và kích cỡ phù hợp trước khi xác nhận đơn.</p></div>
   <div class="benefit"><div class="symbol">✧</div><h3>Giao hàng toàn quốc</h3><p>Miễn phí vận chuyển theo chương trình ưu đãi đang áp dụng.</p></div>
@@ -758,6 +878,60 @@ function loadTrangAnhOrders() {
 loadTrangAnhOrders();
 setInterval(loadTrangAnhOrders, 60000);
 
+</script>
+
+
+<script>
+/*
+  THIET LAP HAN KET THUC UU DAI:
+  Doi ngay gio ben duoi thanh han uu dai that cua shop.
+  Dinh dang: YYYY-MM-DDTHH:MM:SS+07:00 (gio Viet Nam).
+  Mac dinh hien tai la 30/11/2026 23:59 gio Viet Nam.
+*/
+(function () {
+  const PROMOTION_END_AT = "2026-11-30T23:59:59+07:00";
+
+  const endTime = new Date(PROMOTION_END_AT).getTime();
+  const ids = {
+    days: document.getElementById("taDays"),
+    hours: document.getElementById("taHours"),
+    minutes: document.getElementById("taMinutes"),
+    seconds: document.getElementById("taSeconds"),
+    grid: document.getElementById("taCountdownGrid"),
+    deadline: document.getElementById("taCountdownDeadline"),
+    expired: document.getElementById("taCountdownExpired")
+  };
+
+  if (!Number.isFinite(endTime) || !ids.days || !ids.grid) return;
+
+  function updateCountdown() {
+    const remaining = endTime - Date.now();
+
+    if (remaining <= 0) {
+      ids.days.textContent = "00";
+      ids.hours.textContent = "00";
+      ids.minutes.textContent = "00";
+      ids.seconds.textContent = "00";
+      ids.grid.hidden = true;
+      ids.deadline.hidden = true;
+      ids.expired.hidden = false;
+      return;
+    }
+
+    const days = Math.floor(remaining / 86400000);
+    const hours = Math.floor((remaining % 86400000) / 3600000);
+    const minutes = Math.floor((remaining % 3600000) / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+
+    ids.days.textContent = String(days).padStart(2, "0");
+    ids.hours.textContent = String(hours).padStart(2, "0");
+    ids.minutes.textContent = String(minutes).padStart(2, "0");
+    ids.seconds.textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
+})();
 </script>
 
 </body>
